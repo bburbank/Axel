@@ -482,6 +482,10 @@ package org.axgl {
 			
 			if ((keys.pressed(AxKey.GRAVE) || keys.pressed(AxKey.BACKSLASH)) && debuggerEnabled) {
 				debugger.active = !debugger.active;
+                if(debugger.active)
+                {
+                    heartbeat();
+                }
 			}
 		}
 		

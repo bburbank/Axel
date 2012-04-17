@@ -105,17 +105,20 @@ package org.axgl.util {
 			displayDraws = draws;
 			displayTris = tris;
 			
-			var colorRatio:uint = Math.floor(Ax.fps / Ax.requestedFramerate * 255);
-			fpsText.text = "@[190,190,190]FPS: @[" + (255 - colorRatio) + "," + colorRatio + ",0]" + Ax.fps + "@[90,90,90]/" + Ax.requestedFramerate;
-			memoryText.text = "@[190,190,190]Memory: @[100,150,255]" + (System.totalMemory / MEGABYTES_IN_BYTES).toFixed(1) + "@[130,130,130] MB";
-			timeText.text = "@[190,190,190]Updates: @[100,150,255]" + displayUpdates + " @[170,170,170](@[100,140,200]" + displayUpdateTime + "@[130,130,130]ms@[170,170,170]) @[190,190,190]Draws: @[100,150,255]" + displayDraws + " @[170,170,170](@[100,140,200]" + displayDrawTime + "@[130,130,130]ms@[170,170,170])";
-			
-			var renderMode:String = Ax.mode == "Software Mode" ? "@[255,0,0]Software Rendering" : "@[150,180,255]Hardware Rendering";
-			modeText.text = renderMode + " @[190,190,190]Tris: @[100,150,255]" + displayTris;
-			
-			if (title != null) {
-				titleText.text = title;
-			}
+            if(active)
+            {
+    			var colorRatio:uint = Math.floor(Ax.fps / Ax.requestedFramerate * 255);
+    			fpsText.text = "@[190,190,190]FPS: @[" + (255 - colorRatio) + "," + colorRatio + ",0]" + Ax.fps + "@[90,90,90]/" + Ax.requestedFramerate;
+    			memoryText.text = "@[190,190,190]Memory: @[100,150,255]" + (System.totalMemory / MEGABYTES_IN_BYTES).toFixed(1) + "@[130,130,130] MB";
+    			timeText.text = "@[190,190,190]Updates: @[100,150,255]" + displayUpdates + " @[170,170,170](@[100,140,200]" + displayUpdateTime + "@[130,130,130]ms@[170,170,170]) @[190,190,190]Draws: @[100,150,255]" + displayDraws + " @[170,170,170](@[100,140,200]" + displayDrawTime + "@[130,130,130]ms@[170,170,170])";
+    			
+    			var renderMode:String = Ax.mode == "Software Mode" ? "@[255,0,0]Software Rendering" : "@[150,180,255]Hardware Rendering";
+    			modeText.text = renderMode + " @[190,190,190]Tris: @[100,150,255]" + displayTris;
+    			
+    			if (title != null) {
+    				titleText.text = title;
+    			}
+            }
 		}
 		
 		public function set title(title:String):void {
